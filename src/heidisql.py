@@ -63,7 +63,7 @@ class HeidiSQL(kp.Plugin):
         data_bag = kpu.kwargs_decode(items_chain[0].data_bag())
         sessions = self._distros[data_bag['distro_name']]['sessions']
         for session in sessions:
-            session_name = str(session).rpartition('\\')[2]
+            session_name = str(session).replace('\\', '/')
             if not user_input or kpu.fuzzy_score(user_input, session_name) > 0:
                 suggestions.append(self.create_item(
                     category=kp.ItemCategory.REFERENCE,
