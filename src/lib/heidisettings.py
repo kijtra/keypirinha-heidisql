@@ -9,7 +9,7 @@ class HeidiSettings:
         list_of_sessions = []
 
         settingsFile = os.path.join(path, self.HEIDI_SETTINGS_FILE)
-        with open(settingsFile) as f:
+        with open(settingsFile, 'r', encoding="utf-8") as f:
             for line in f:
                 match = re.search(r'Servers.*\\(.*)\\Host', line)
                 if match:
