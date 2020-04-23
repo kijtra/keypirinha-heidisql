@@ -11,7 +11,7 @@ class HeidiSettings:
         settingsFile = os.path.join(path, self.HEIDI_SETTINGS_FILE)
         with open(settingsFile, 'r', encoding="utf-8") as f:
             for line in f:
-                match = re.search(r'Servers.*\\(.*)\\Host', line)
+                match = re.search(r'Servers\\(.*)\\Host', line)
                 if match:
                     session_name = match.group(1)
                     list_of_sessions.append(session_name)
